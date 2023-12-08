@@ -1,0 +1,55 @@
+<div class="row p-4">
+
+  <form [formGroup]="panelForm">
+
+    <!-- afegir/restar idiomes -->
+
+    <div class="col-12 d-flex justify-content-end align-items-center pb-2">
+      <i
+        (click)="showModal('langs')"
+        class="fa-solid fa-circle-info fa-sm pe-1" style="color: #c0c0c0;">
+      </i>
+        Número d'idiomes:
+      <button
+        (click)="subLanguage()"
+        class="btn btn-outline-secondary btn-sm p-1 pt-0 pb-0 m-1 ms-4">
+        -
+      </button>
+      <input
+        type="number"
+        class="form-control"
+        formControlName="nLangs"
+        id="nLangs">
+      <button
+        (click)="addLanguage()"
+        class="btn btn-outline-secondary btn-sm p-1 pt-0 pb-0 m-1">
+        +
+      </button>
+    </div>
+
+    <!-- afegir/restar webs -->
+
+    <div class="col-12 d-flex justify-content-end align-items-center ">
+      <i
+        (click)="showModal('webs')"
+        class="fa-solid fa-circle-info fa-sm pe-1" style="color: #c0c0c0;"></i>
+        Número de pàgines:
+      <button
+        (click)="subWeb()"
+        class="btn btn-outline-secondary btn-sm p-1 pt-0 pb-0 m-1 ms-4">
+         -
+      </button>
+      <input
+        type="number"
+        class="form-control"
+        formControlName="nWebs"
+        id="nWebs">
+      <button
+      (click)="addWeb()"
+      class="btn btn-outline-secondary btn-sm p-1 pt-0 pb-0 m-1">
+       +
+      </button>
+    </div>
+
+  </form>
+  </div>

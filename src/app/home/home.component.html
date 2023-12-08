@@ -1,0 +1,101 @@
+<form [formGroup]="checkForm">
+
+
+<!-- 0 -->
+  <div class="container card w-80 shadow m-3">
+    <div class="row p-3">
+      <div class="col-4 card-body">
+        <h5 class="card-title">{{ products[0].title }}</h5>
+        <p class="card-text">{{ products[0].description }}</p>
+      </div>
+      <div class="col-5 card-body">
+        <h5 class="card-title">{{ products[0].price }}
+          <i class="fa-solid fa-euro-sign fa-xs" style="color: #000000;"></i>
+        </h5>
+      </div>
+      <div class="col-3 card-body form-check">
+          <input
+          class="form-check-input"
+          type="checkbox" formControlName="c0" id="c0"> Afegir
+          <label class="form-check-label" for="c0"></label>
+      </div>
+
+      @if(checkForm.get('c0')?.value){
+      <app-panel (productPrice)="budgetAndExtra($event)" ></app-panel>
+      }
+
+
+    </div>
+  </div>
+
+
+<!-- 1 -->
+  <div class="container card w-80 shadow m-3">
+    <div class="row p-3">
+      <div class="col-4 card-body">
+        <h5 class="card-title">{{ products[1].title }}</h5>
+        <p class="card-text">{{ products[1].description }}</p>
+      </div>
+      <div class="col-5 card-body">
+        <h5 class="card-title">{{ products[1].price }}
+          <i class="fa-solid fa-euro-sign fa-xs" style="color: #000000;"></i>
+        </h5>
+      </div>
+      <div class="col-3 card-body form-check">
+          <input
+          class="form-check-input"
+          type="checkbox" formControlName="c1" id="c1"> Afegir
+          <label class="form-check-label" for="c1"></label>
+      </div>
+
+      @if(checkForm.get('c1')?.value){
+        <app-panel (productPrice)="budgetAndExtra($event)" ></app-panel>
+        }
+
+
+    </div>
+  </div>
+
+
+  <!-- 2 -->
+  <div class="container card w-80 shadow m-3">
+    <div class="row p-3">
+      <div class="col-4 card-body">
+        <h5 class="card-title">{{ products[2].title }}</h5>
+        <p class="card-text">{{ products[2].description }}</p>
+      </div>
+      <div class="col-5 card-body">
+        <h5 class="card-title">{{ products[2].price }}
+          <i class="fa-solid fa-euro-sign fa-xs" style="color: #000000;"></i>
+        </h5>
+      </div>
+      <div class="col-3 card-body form-check">
+          <input
+          class="form-check-input"
+          type="checkbox" formControlName="c2" id="c2"> Afegir
+          <label class="form-check-label" for="c2"></label>
+      </div>
+
+
+      @if(checkForm.get('c2')?.value){
+        <app-panel (productPrice)="budgetAndExtra($event)" ></app-panel>
+        }
+
+
+    </div>
+  </div>
+
+
+<!-- SUMA PRESSUPOST -->
+
+  <div class="row p-5">
+    <div class="col-9 text-end pt-2">
+      <p class="fw-bold"> Preu pressupostat:</p>
+    </div>
+    <div class="col-3">
+      <h4 class="fw-bold fs-2 ps-2">{{ addProducts }}
+      <i class="fa-solid fa-euro-sign fa-xs" style="color: #000000;"></i></h4>
+    </div>
+  </div>
+
+</form>
