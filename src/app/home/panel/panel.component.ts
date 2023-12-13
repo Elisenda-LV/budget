@@ -64,8 +64,6 @@ export class PanelComponent {
       nLangs.setValue(actualNum + 1);
     }
 
-    console.log(nLangs)
-
   }
 
   subLanguage():void {

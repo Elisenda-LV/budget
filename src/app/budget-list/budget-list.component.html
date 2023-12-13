@@ -1,0 +1,72 @@
+@if(budgets().length > 0 ){
+
+
+  <div class="row d-flex justify-content-center pb-5">
+    <!-- nav -->
+    <hr class=" w-75 m-3 mt-5 mb-5">
+      <div class="container w-75 m-3">
+        <h5>Pressupostos en curs</h5>
+        <ul class="nav justify-content-end">
+          <!-- <li class="nav-item p-2">
+            <input type="text">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </li> -->
+          <li class="nav-item p-2">
+            <button (click)="byDate()" class="btn btn-outline-white">Data</button>
+            <i class="fa-solid fa-arrow-down-short-wide"></i>
+           </li>
+          <li class="nav-item p-2">
+            <button (click)="byPrice()" class="btn btn-outline-white">Preu</button>
+            <i class="fa-solid fa-arrow-down-1-9"></i>
+          </li>
+          <li class="nav-item p-2">
+           <button (click)="byName()" class="btn btn-outline-white">Nom</button>
+            <i class="fa-solid fa-arrow-down-a-z"></i>
+          </li>
+        </ul>
+      </div>
+
+    <!-- Pressupostos -->
+
+  @for( budget of budgets(); track $index){
+
+    <div class="container card w-75 shadow m-3">
+
+      <div class="row p-3">
+
+        <div class="col-5 card-body">
+          <h5 class="card-title fw-bold">{{ budget.name }}</h5>
+          <p class="text-secondary">{{ budget.email }} </p>
+          <p class="text-secondary">{{ budget.phoneNumber }}</p>
+        </div>
+
+        <div class="col-5 card-body">
+          <p class="card-title fw-bold">Serveis contractats:</p>
+
+          @for(service of budgets(); track $index  ){
+          <ul>
+            <li>{{ service.services }}</li>
+          </ul>
+          }
+        </div>
+
+        <div class="col-2 card-body">
+          <p class="card-text text-secondary">Total:</p>
+          <h2 class="card-title fw-bold">
+          {{ budget.price }}<i class="fa-solid fa-euro-sign fa-xs" style="color: #000000;"></i>
+          </h2>
+        </div>
+
+      </div>
+    </div>
+  }
+  </div>
+}
+
+
+
+
+
+
+
+

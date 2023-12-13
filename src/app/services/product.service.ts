@@ -9,21 +9,21 @@ export class ProductService {
 
     {
       title: 'Seo',
-      description: 'Programació d´una web responsive completa',
+      description: 'Disseny de campanya SEO',
       price: 300,
 
     },
 
     {
       title:'Ads',
-      description:'Programació d´una web responsive completa',
+      description:'Disseny de campanya de publicitat',
       price: 400,
 
     },
 
     {
       title:'Web',
-      description:'Programació d´una web responsive completa',
+      description:'Programació web responsive completa',
       price: 500,
 
    },

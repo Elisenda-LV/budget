@@ -11,7 +11,7 @@ describe('HomeComponent', () => {
       imports: [HomeComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -20,4 +20,22 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should be a number', () => {
+    expect(component.addProducts).not.toBeNaN();
+  });
+
+  it('should be a number', () => {
+    expect(component.productPrice).not.toBeNaN();
+  });
+
+  it('should be a number', () => {
+    expect(component.updateBudget()).not.toBeNegativeInfinity();
+  });
+
+  it('should be a number', () => {
+    expect(component.budgetAndExtra).not.toBeNaN();
+  });
+
+
 });

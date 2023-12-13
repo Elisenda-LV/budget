@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -12,6 +13,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
     RouterOutlet,
     WelcomeComponent,
     HomeComponent,
+
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
