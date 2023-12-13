@@ -5,17 +5,17 @@
 
 <!-- 0 -->
   <div class="container card w-75 shadow m-3">
-    <div class="row p-3">
-      <div class="col-4 card-body">
+    <div class="row justify-content-center p-3">
+      <div class="card-body col-12 col-sm-4">
         <h5 class="card-title">{{ products[0].title }}</h5>
         <p class="card-text">{{ products[0].description }}</p>
       </div>
-      <div class="col-5 card-body d-flex justify-content-around align-items-center">
+      <div class="card-body col-12 col-sm-5  d-flex justify-content-around">
         <h1 class="card-title">{{ products[0].price }}
           <i class="fa-solid fa-euro-sign fa-xs" style="color: #000000;"></i>
         </h1>
       </div>
-      <div class="form-check col-3 card-body d-flex justify-content-end align-items-center">
+      <div class="form-check col-12 col-sm-3 card-body d-flex justify-content-end">
         <p><input
           class="form-check-input"
           type="checkbox" formControlName="c0" id="c0">Afegir</p>
@@ -34,16 +34,16 @@
 <!-- 1 -->
   <div class="container card w-75 shadow m-3">
     <div class="row p-3">
-      <div class="col-4 card-body">
+      <div class="card-body col-12 col-sm-4">
         <h5 class="card-title">{{ products[1].title }}</h5>
         <p class="card-text">{{ products[1].description }}</p>
       </div>
-      <div class="col-5 card-body  d-flex justify-content-center align-items-center">
+      <div class="card-body col-12 col-sm-5  d-flex justify-content-center align-items-center">
         <h1 class="card-title">{{ products[1].price }}
           <i class="fa-solid fa-euro-sign fa-xs" style="color: #000000;"></i>
         </h1>
       </div>
-      <div class="col-3 card-body form-check d-flex justify-content-end align-items-center">
+      <div class="card-body col-12 col-sm-3 form-check d-flex justify-content-end align-items-center">
         <p><input
           class="form-check-input"
           type="checkbox" formControlName="c1" id="c1">Afegir</p>
@@ -62,16 +62,16 @@
   <!-- 2 -->
   <div class="container card w-75 shadow m-3">
     <div class="row p-3">
-      <div class="col-4 card-body">
+      <div class="card-body col-12 col-sm-4">
         <h5 class="card-title">{{ products[2].title }}</h5>
         <p class="card-text">{{ products[2].description }}</p>
       </div>
-      <div class="col-5 card-body  d-flex justify-content-center align-items-center">
+      <div class="card-body col-12 col-sm-5  d-flex justify-content-center align-items-center">
         <h1 class="card-title">{{ products[2].price }}
           <i class="fa-solid fa-euro-sign fa-xs" style="color: #000000;"></i>
         </h1>
       </div>
-      <div class="col-3 card-body form-check d-flex justify-content-end align-items-center">
+      <div class="card-body col-12 col-sm-3 form-check d-flex justify-content-end align-items-center">
         <p><input
           class="form-check-input"
           type="checkbox" formControlName="c2" id="c2">Afegir</p>
@@ -116,7 +116,7 @@
          <div class="form-group col-12 d-md-flex pb-3">
 
           <!-- Nom -->
-          <div class="col me-2">
+          <div class="col me-2 mb-2">
             <input type="text"
                     class="form-control"
                     formControlName="name"
@@ -128,7 +128,7 @@
           </div>
 
           <!-- phone -->
-          <div class="col me-2">
+          <div class="col me-2 mb-2">
             <input type="number"
                   class="form-control"
                   formControlName="phone"
@@ -140,7 +140,7 @@
           </div>
 
           <!-- Email -->
-          <div class="col me-2">
+          <div class="col me-2 mb-2">
             <input type="email"
                   class="form-control"
                   formControlName="email"
@@ -152,7 +152,7 @@
           </div>
 
           <div class="row">
-              <div class="col me-2">
+              <div class="col me-2 mb-2">
                   <button
                   (click)="onSave()"
                   class="btn btn-primary float-end" type="submit"> Sol.licitar pressupost</button>
@@ -163,6 +163,7 @@
       </form>
   </div>
 </div>
+
 
 <app-budget-list></app-budget-list>
 

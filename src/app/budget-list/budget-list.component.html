@@ -1,5 +1,4 @@
-@if(budgets().length > 0 ){
-
+  @if(signalArray().length > 0 ){
 
   <div class="row d-flex justify-content-center pb-5">
     <!-- nav -->
@@ -7,10 +6,11 @@
       <div class="container w-75 m-3">
         <h5>Pressupostos en curs</h5>
         <ul class="nav justify-content-end">
-          <!-- <li class="nav-item p-2">
-            <input type="text">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </li> -->
+          <li class="nav-item p-2">
+            <!-- <input type="text"> -->
+            <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
+
+          </li>
           <li class="nav-item p-2">
             <button (click)="byDate()" class="btn btn-outline-white">Data</button>
             <i class="fa-solid fa-arrow-down-short-wide"></i>
@@ -28,8 +28,7 @@
 
     <!-- Pressupostos -->
 
-  @for( budget of budgets(); track $index){
-
+    @for(budget of signalArray(); track $index){
     <div class="container card w-75 shadow m-3">
 
       <div class="row p-3">
@@ -42,12 +41,12 @@
 
         <div class="col-5 card-body">
           <p class="card-title fw-bold">Serveis contractats:</p>
-
-          @for(service of budgets(); track $index  ){
           <ul>
+          @for(service of signalArray(); track $index  ){
             <li>{{ service.services }}</li>
-          </ul>
           }
+          </ul>
+
         </div>
 
         <div class="col-2 card-body">
@@ -60,8 +59,17 @@
       </div>
     </div>
   }
+
+  </div>
+}@else{
+  <div class="row d-flex justify-content-center pb-5">
+    <hr class=" w-75 m-3 mt-5 mb-5">
+      <div class="container w-75 m-3">
+        <h5>Encara no hi ha cap pressupost en curs.</h5>
+      </div>
   </div>
 }
+
 
 
 

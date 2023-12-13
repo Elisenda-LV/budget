@@ -138,20 +138,17 @@ export class HomeComponent implements OnInit  {
 
     let formServices : string[] = this.productService.products.filter((product, index) => this.checkStatus[index])
                                                               .map(product => (product.title));
-    let totalBudget = this.addProducts;
-    let phone : string = this.budgetForm.get('phone')!.value || '';
-
     let budget: Budget = {
       name: this.budgetForm.get('name')!.value || '',
       email: this.budgetForm.get('email')!.value || '',
-      phoneNumber: phone,
+      phoneNumber: this.budgetForm.get('phone')!.value || '',
       services: formServices,
-      price: totalBudget,
+      price: this.addProducts,
       date: new Date()
     }
 
     if(this.budgetForm.valid){
-      this.budgetService.budgetArray.update(budgets => ({...budgets, budget}));
+      this.budgetService.budgetArray.update(budgets => [...budgets, budget]);
       setTimeout(() => {
         this.budgetForm.reset();
         this.checkForm.reset();

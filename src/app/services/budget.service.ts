@@ -7,11 +7,12 @@ import { Budget } from '../interfaces/budget.interface';
 export class BudgetService {
 
   //TODO: Array que recull dades del budgetForm (ubicat a HomeComponent) i les envia a budget-list per a que mostri les dades.
-  public budgetArray = signal <Budget[]>([])
 
-  showBudget(budget: Budget){
+  public budgetArray = signal <Budget[]>([]);
+
+ /*  showBudget(budget: Budget){
     return this.budgetArray.length;
-  }
+  } */
 
 
 

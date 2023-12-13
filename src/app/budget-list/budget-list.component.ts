@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { BudgetService } from '../services/budget.service';
@@ -26,19 +26,17 @@ export class BudgetListComponent {
 
   constructor(public budgetService: BudgetService){}
 
-  public budgets = this.budgetService.budgetArray;
+  public signalArray = this.budgetService.budgetArray;
 
 
-
-
-//TODO: Métodes  per filtres pressupostos:
+  //TODO: Métodes  per filtres pressupostos:
 
   byPrice(): void {
-    this.budgets().sort((a: Budget, b: Budget) => b.price - a.price);
+    this.signalArray().sort((a: Budget, b: Budget) => b.price - a.price);
   }
 
   byName(): void {
-    this.budgets().sort((a: Budget, b: Budget) => {
+    this.signalArray().sort((a: Budget, b: Budget) => {
       const nA = a.name.toUpperCase();
       const nB = b.name.toUpperCase();
 
@@ -55,7 +53,7 @@ export class BudgetListComponent {
 
 
   byDate(): void {
-    this.budgets().sort((a: Budget, b: Budget) => {
+    this.signalArray().sort((a: Budget, b: Budget) => {
       if (a.date < b.date) return 1;
       else return -1;
     });
