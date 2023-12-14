@@ -35,7 +35,7 @@ export class BudgetListComponent {
   ){}
 
   public signalArray = this.budgetService.budgetArray;
-  public budgetFound = [];
+  public budgetResult = [];
 
 
   //TODO: Métodes  per filtres pressupostos:
@@ -83,7 +83,7 @@ export class BudgetListComponent {
 
     if (budgetFound) {
       console.log('Presupuesto encontrado:', budgetFound);
-      return
+      this.budgetResult
 
     } else {
       console.log('Presupuesto no encontrado');
