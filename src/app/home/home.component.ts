@@ -40,6 +40,7 @@ export class HomeComponent implements OnInit  {
 
   public checkStatus: boolean [] = [false];
   public submitForm: boolean  =  false;
+  public formServices= 0;
 
   //TODO: Vincular Services:
 
@@ -88,13 +89,17 @@ export class HomeComponent implements OnInit  {
       this.addProducts += this.products[0].price;
       this.checkStatus [0] = true;
 
-    } else this.checkStatus[0] = false;
+    } else {
+      this.checkStatus[0] = false;
+    }
 
     if (this.checkForm.get('c1')?.value) {
       this.addProducts += this.products[1].price;
       this.checkStatus [1] = true;
 
-    } else this.checkStatus[0] = false;
+    } else {
+      this.checkStatus[0] = false;
+    }
 
     if (this.checkForm.get('c2')?.value) {
       this.addProducts += this.products[2].price;
@@ -102,7 +107,7 @@ export class HomeComponent implements OnInit  {
 
     }else{
       this.checkStatus[2] = false;
-      this.productPrice = 0;
+      this.productPrice= 0;
 
     }
   }
@@ -136,6 +141,7 @@ export class HomeComponent implements OnInit  {
 
     this.submitForm = true;
 
+
     let formServices : string[] = this.productService.products.filter((product, index) => this.checkStatus[index])
                                                               .map(product => (product.title));
     let budget: Budget = {
@@ -152,6 +158,7 @@ export class HomeComponent implements OnInit  {
       setTimeout(() => {
         this.budgetForm.reset();
         this.checkForm.reset();
+
       }, 200);
 
       this.submitForm = false;

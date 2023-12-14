@@ -5,6 +5,8 @@ import { BudgetService } from '../services/budget.service';
 import { Budget } from '../interfaces/budget.interface';
 import { HomeComponent } from '../home/home.component';
 import { PanelComponent } from '../home/panel/panel.component';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ValidatorsService } from '../services/validators.service';
 
 
 @Component({
@@ -14,6 +16,8 @@ import { PanelComponent } from '../home/panel/panel.component';
     CommonModule,
     HomeComponent,
     PanelComponent,
+    FormsModule,
+    ReactiveFormsModule,
 
   ],
   templateUrl: './budget-list.component.html',
@@ -24,9 +28,14 @@ import { PanelComponent } from '../home/panel/panel.component';
 export class BudgetListComponent {
 
 
-  constructor(public budgetService: BudgetService){}
+  constructor(
+    public budgetService: BudgetService,
+    public validatorsService: ValidatorsService
+
+  ){}
 
   public signalArray = this.budgetService.budgetArray;
+  public budgetFound = [];
 
 
   //TODO: Métodes  per filtres pressupostos:
@@ -57,6 +66,29 @@ export class BudgetListComponent {
       if (a.date < b.date) return 1;
       else return -1;
     });
+  }
+
+  //TODO: buscador
+
+  searchForm = new FormGroup({
+    search : new FormControl('', [Validators.required, Validators.maxLength(20), Validators.pattern(this.validatorsService.firstNameAndLastnamePattern)])
+
+  })
+
+
+  searchBudget():void {
+
+    let searchB = this.searchForm.get('search')!.value?.toLowerCase() || '';
+    let budgetFound = this.signalArray().filter(budget => budget.name.toLowerCase() == searchB);
+
+    if (budgetFound) {
+      console.log('Presupuesto encontrado:', budgetFound);
+      return
+
+    } else {
+      console.log('Presupuesto no encontrado');
+
+    }
   }
 
 }

@@ -1,4 +1,4 @@
-  @if(signalArray().length > 0 ){
+@if(signalArray().length > 0 ){
 
   <div class="row d-flex justify-content-center pb-5">
     <!-- nav -->
@@ -7,21 +7,28 @@
         <h5>Pressupostos en curs</h5>
         <ul class="nav justify-content-end">
           <li class="nav-item p-2">
-            <!-- <input type="text"> -->
-            <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
+
+             <!-- buscador -->
+            <form [formGroup]="searchForm" class="d-flex">
+              <input
+              type="text" class="form-control" formControlName="search" placeholder="Introdueix el teu nom">
+              <button (click)="searchBudget()" class="btn btn-outline-white" type="submit "><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
 
           </li>
+
+            <!-- filtros -->
           <li class="nav-item p-2">
-            <button (click)="byDate()" class="btn btn-outline-white">Data</button>
-            <i class="fa-solid fa-arrow-down-short-wide"></i>
+            <button (click)="byDate()" class="btn btn-outline-white">Data
+            <i class="fa-solid fa-arrow-down-short-wide"></i></button>
            </li>
           <li class="nav-item p-2">
-            <button (click)="byPrice()" class="btn btn-outline-white">Preu</button>
-            <i class="fa-solid fa-arrow-down-1-9"></i>
+            <button (click)="byPrice()" class="btn btn-outline-white">Preu
+            <i class="fa-solid fa-arrow-down-1-9"></i></button>
           </li>
           <li class="nav-item p-2">
-           <button (click)="byName()" class="btn btn-outline-white">Nom</button>
-            <i class="fa-solid fa-arrow-down-a-z"></i>
+           <button (click)="byName()" class="btn btn-outline-white">Nom
+            <i class="fa-solid fa-arrow-down-a-z"></i></button>
           </li>
         </ul>
       </div>
@@ -34,16 +41,17 @@
       <div class="row p-3">
 
         <div class="col-5 card-body">
-          <h5 class="card-title fw-bold">{{ budget.name }}</h5>
-          <p class="text-secondary">{{ budget.email }} </p>
-          <p class="text-secondary">{{ budget.phoneNumber }}</p>
+          <h4 class="card-title fw-bold">{{ budget.name }}</h4>
+          <p class="">{{ budget.email }} </p>
+          <p class="">{{ budget.phoneNumber }}</p>
         </div>
 
         <div class="col-5 card-body">
           <p class="card-title fw-bold">Serveis contractats:</p>
           <ul>
+
           @for(service of signalArray(); track $index  ){
-            <li>{{ service.services }}</li>
+            <li><p>{{ service.services }}</p></li>
           }
           </ul>
 
@@ -58,10 +66,11 @@
 
       </div>
     </div>
-  }
-
+    }
   </div>
-}@else{
+
+
+  }@else{
   <div class="row d-flex justify-content-center pb-5">
     <hr class=" w-75 m-3 mt-5 mb-5">
       <div class="container w-75 m-3">
@@ -69,6 +78,7 @@
       </div>
   </div>
 }
+
 
 
 
