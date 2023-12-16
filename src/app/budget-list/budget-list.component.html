@@ -11,7 +11,7 @@
              <!-- buscador -->
             <form [formGroup]="searchForm" class="d-flex">
               <input
-              type="text" class="form-control" formControlName="search" placeholder="Introdueix el teu nom">
+              type="text" class="form-control" formControlName="search" placeholder="Buscar">
               <button (click)="searchBudget()" class="btn btn-outline-white" type="submit "><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
 
@@ -42,8 +42,8 @@
 
         <div class="col-5 card-body">
           <h4 class="card-title fw-bold">{{ budget.name }}</h4>
-          <p class="">{{ budget.email }} </p>
-          <p class="">{{ budget.phoneNumber }}</p>
+          <p class="tect-primary">{{ budget.email }} </p>
+          <p class="text-preimary">{{ budget.phoneNumber }}</p>
         </div>
 
         <div class="col-5 card-body">
@@ -58,7 +58,7 @@
         </div>
 
         <div class="col-2 card-body">
-          <p class="card-text text-secondary">Total:</p>
+          <p class="card-text">Total:</p>
           <h2 class="card-title fw-bold">
           {{ budget.price }}<i class="fa-solid fa-euro-sign fa-xs" style="color: #000000;"></i>
           </h2>
@@ -70,14 +70,9 @@
   </div>
 
 
-  }@else{
-  <div class="row d-flex justify-content-center pb-5">
-    <hr class=" w-75 m-3 mt-5 mb-5">
-      <div class="container w-75 m-3">
-        <h5>Encara no hi ha cap pressupost en curs.</h5>
-      </div>
-  </div>
 }
+
+
 
 
 

@@ -10,11 +10,6 @@ export class BudgetService {
 
   public budgetArray = signal <Budget[]>([]);
 
- /*  showBudget(budget: Budget){
-    return this.budgetArray.length;
-  } */
-
-
 
   //TODO: Arrays pel Modal.
   public helpWeb = [

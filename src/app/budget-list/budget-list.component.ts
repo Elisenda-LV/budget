@@ -35,7 +35,10 @@ export class BudgetListComponent {
   ){}
 
   public signalArray = this.budgetService.budgetArray;
-  public budgetResult = [];
+  public budgetResults = [];
+  public budgetFound = [];
+  public showBudget: boolean = false;
+
 
 
   //TODO: Métodes  per filtres pressupostos:
@@ -81,9 +84,9 @@ export class BudgetListComponent {
     let searchB = this.searchForm.get('search')!.value?.toLowerCase() || '';
     let budgetFound = this.signalArray().filter(budget => budget.name.toLowerCase() == searchB);
 
-    if (budgetFound) {
+    if (budgetFound.length > 0) {
       console.log('Presupuesto encontrado:', budgetFound);
-      this.budgetResult
+      budgetFound.push()
 
     } else {
       console.log('Presupuesto no encontrado');
@@ -92,3 +95,4 @@ export class BudgetListComponent {
   }
 
 }
+

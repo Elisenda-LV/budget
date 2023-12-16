@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgStyle } from '@angular/common';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators, AbstractControl } from '@angular/forms';
 
 import { PanelComponent } from './panel/panel.component';
@@ -21,6 +21,7 @@ import { ValidatorsService } from '../services/validators.service';
     ReactiveFormsModule,
     FormsModule,
     BudgetListComponent,
+    NgStyle,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
@@ -41,6 +42,7 @@ export class HomeComponent implements OnInit  {
   public checkStatus: boolean [] = [false];
   public submitForm: boolean  =  false;
   public formServices= 0;
+
 
   //TODO: Vincular Services:
 
@@ -64,7 +66,8 @@ export class HomeComponent implements OnInit  {
 
   ngOnInit(): void {
     this.checkForm.valueChanges.subscribe(()=>{
-      this.updateBudget()
+      this.updateBudget();
+
       console.log(this.addProducts)
     })
 
@@ -88,6 +91,7 @@ export class HomeComponent implements OnInit  {
     if (this.checkForm.get('c0')?.value) {
       this.addProducts += this.products[0].price;
       this.checkStatus [0] = true;
+
 
     } else {
       this.checkStatus[0] = false;
