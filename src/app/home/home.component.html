@@ -22,11 +22,6 @@
         <label class="form-check-label" for="c0"></label>
       </div>
 
-      @if(checkForm.get('c0')?.value){
-      <app-panel (productPrice)="budgetAndExtra($event)"></app-panel>
-      }
-
-
     </div>
   </div>
 
@@ -49,11 +44,6 @@
           type="checkbox" formControlName="c1" id="c1">Afegir</p>
         <label class="form-check-label" for="c1"></label>
       </div>
-
-      @if(checkForm.get('c1')?.value){
-        <app-panel (productPrice)="budgetAndExtra($event)" ></app-panel>
-        }
-
 
     </div>
   </div>
@@ -123,7 +113,7 @@
                     placeholder="Nom i cognoms">
 
             <span *ngIf="isValidField('name')"  class="form-text text-danger">
-                      *Introdueix nom i cognoms.
+                      *Introdueix el teu nom.
             </span>
           </div>
 

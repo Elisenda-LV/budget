@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, Input, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { BudgetService } from '../services/budget.service';
@@ -27,7 +27,6 @@ import { ValidatorsService } from '../services/validators.service';
 
 export class BudgetListComponent {
 
-
   constructor(
     public budgetService: BudgetService,
     public validatorsService: ValidatorsService
@@ -35,9 +34,9 @@ export class BudgetListComponent {
   ){}
 
   public signalArray = this.budgetService.budgetArray;
-  public budgetResults = [];
-  public budgetFound = [];
-  public showBudget: boolean = false;
+  public budgetResults: string[] = [];
+  public budgetFound: Budget[] = [];
+
 
 
 
@@ -74,7 +73,7 @@ export class BudgetListComponent {
   //TODO: buscador
 
   searchForm = new FormGroup({
-    search : new FormControl('', [Validators.required, Validators.maxLength(20), Validators.pattern(this.validatorsService.firstNameAndLastnamePattern)])
+    search : new FormControl('', [Validators.required, Validators.maxLength(20), Validators.pattern(this.validatorsService.namePattern)])
 
   })
 
@@ -85,8 +84,10 @@ export class BudgetListComponent {
     let budgetFound = this.signalArray().filter(budget => budget.name.toLowerCase() == searchB);
 
     if (budgetFound.length > 0) {
+      budgetFound.map((data:Budget) => {
+      this.budgetResults = data.services;
       console.log('Presupuesto encontrado:', budgetFound);
-      budgetFound.push()
+      })
 
     } else {
       console.log('Presupuesto no encontrado');

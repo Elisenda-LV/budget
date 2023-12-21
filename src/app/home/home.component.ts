@@ -43,6 +43,8 @@ export class HomeComponent implements OnInit  {
   public submitForm: boolean  =  false;
   public formServices= 0;
 
+  public showProducts: string[] = [];
+
 
   //TODO: Vincular Services:
 
@@ -102,7 +104,7 @@ export class HomeComponent implements OnInit  {
       this.checkStatus [1] = true;
 
     } else {
-      this.checkStatus[0] = false;
+      this.checkStatus[1] = false;
     }
 
     if (this.checkForm.get('c2')?.value) {
@@ -117,13 +119,14 @@ export class HomeComponent implements OnInit  {
   }
 
 
+
   //TODO: Crear budgetForm, validators i custom validators (creem carpeta custom-validators)
 
   budgetForm = new FormGroup ({
     name: new FormControl ('', [
       Validators.required,
       Validators.maxLength(20),
-      Validators.pattern(this.validatorsService.firstNameAndLastnamePattern)
+      Validators.pattern(this.validatorsService.namePattern)
     ]),
 
     phone: new FormControl ('', [
@@ -144,10 +147,10 @@ export class HomeComponent implements OnInit  {
   onSave(): void{
 
     this.submitForm = true;
+    let formServices : any[] = this.productService.products
+                                        .filter((product, index) => this.checkStatus[index])
+                                        .map(product => (product.title));
 
-
-    let formServices : string[] = this.productService.products.filter((product, index) => this.checkStatus[index])
-                                                              .map(product => (product.title));
     let budget: Budget = {
       name: this.budgetForm.get('name')!.value || '',
       email: this.budgetForm.get('email')!.value || '',
@@ -159,6 +162,8 @@ export class HomeComponent implements OnInit  {
 
     if(this.budgetForm.valid){
       this.budgetService.budgetArray.update(budgets => [...budgets, budget]);
+      this.showData();
+
       setTimeout(() => {
         this.budgetForm.reset();
         this.checkForm.reset();
@@ -168,7 +173,7 @@ export class HomeComponent implements OnInit  {
       this.submitForm = false;
 
       console.table(this.budgetService.budgetArray);
-      console.table(budget);
+      console.log(this.showProducts);
     }
 
   }
@@ -178,7 +183,29 @@ export class HomeComponent implements OnInit  {
 
   public isValidField(field: string) {
     const formControl = this.budgetForm.get(field);
-    return formControl && formControl.errors && formControl.touched;
+    const C0 = this.checkForm.get('c0');
+    const C1 = this.checkForm.get('c1');
+    const C2 = this.checkForm.get('c2');
+
+    const isAnyCheckboxChecked = C0?.value || C1?.value || C2?.value;
+    const currentFieldValid = formControl && formControl.errors && formControl.touched;
+
+    return isAnyCheckboxChecked && currentFieldValid;
+
+    // return formControl && formControl.errors && formControl.touched;
+  }
+
+
+
+
+  showData(){
+    this.budgetService.budgetArray()
+     .forEach((data: Budget) => {
+        this.showProducts = data.services;
+        console.log(this.showProducts);
+
+      });
+
   }
 
 }
