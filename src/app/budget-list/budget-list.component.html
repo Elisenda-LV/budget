@@ -40,8 +40,8 @@
           <h5>Resultat cerca:</h5>
         </div>
         @for(results of budgetFound ; track $index){
-        <div class="container card w-75 shadow m-3">
-          <div class="row p-3">
+         <div class="container card w-75 shadow m-3">
+            <div class="row p-3">
               <div class="col-5 card-body">
                <h4 class="card-title fw-bold">{{ results.name }}</h4>
                 <p>{{ results.email }}</p>
@@ -59,16 +59,17 @@
 
               </div>
 
-            <div class="col-2 card-body">
-              <p class="card-text">Total:</p>
-              <h2 class="card-title fw-bold">
-              3333<i class="fa-solid fa-euro-sign fa-xs" style="color: #000000;"></i>
-              </h2>
-            </div>
+              <div class="col-2 card-body">
+                <p class="card-text">Total:</p>
+                <h2 class="card-title fw-bold">
+                {{ results.price }}<i class="fa-solid fa-euro-sign fa-xs" style="color: #000000;"></i>
+                </h2>
+              </div>
 
+            </div>
           </div>
-        </div>
         }
+
         <hr class=" w-75 m-3 mt-5 mb-5">
         <div class="container w-75 m-3">
           <h5>Llistat total de pressupostos:</h5>
@@ -78,44 +79,34 @@
     <!-- Pressupostos -->
 
     @for(budget of signalArray(); track $index){
-    <div class="container card w-75 shadow m-3">
+      <div class="container card w-75 shadow m-3">
+        <div class="row p-3">
+          <div class="col-5 card-body">
+            <h4 class="card-title fw-bold">{{ budget.name }}</h4>
+            <p>{{ budget.email }} </p>
+            <p>{{ budget.phoneNumber }}</p>
+          </div>
 
-      <div class="row p-3">
+          <div class="col-5 card-body">
+            <p class="card-title fw-bold">Serveis contractats:</p>
+            <ul>
+              @for( service of budget.services; track $index ){
+                <li class="list-item">{{ service }}</li>
+              }
+            </ul>
+          </div>
 
-        <div class="col-5 card-body">
-          <h4 class="card-title fw-bold">{{ budget.name }}</h4>
-          <p>{{ budget.email }} </p>
-          <p>{{ budget.phoneNumber }}</p>
+          <div class="col-2 card-body">
+            <p class="card-text">Total:</p>
+            <h2 class="card-title fw-bold">
+           {{ budget.price }}<i class="fa-solid fa-euro-sign fa-xs" style="color: #000000;"></i>
+            </h2>
+          </div>
         </div>
-
-        <div class="col-5 card-body">
-          <p class="card-title fw-bold">Serveis contractats:</p>
-
-           <ul>
-            @for( service of budget.services; track $index ){
-              <li class="list-item">{{ service }}</li>
-            }
-          </ul>
-
-        </div>
-
-        <div class="col-2 card-body">
-          <p class="card-text">Total:</p>
-          <h2 class="card-title fw-bold">
-          {{ budget.price }}<i class="fa-solid fa-euro-sign fa-xs" style="color: #000000;"></i>
-          </h2>
-        </div>
-
       </div>
-    </div>
     }
 
-
   </div>
-
-
-
-
 
 }
 

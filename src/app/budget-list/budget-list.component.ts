@@ -27,17 +27,10 @@ import { ValidatorsService } from '../services/validators.service';
 
 export class BudgetListComponent {
 
-  constructor(
-    public budgetService: BudgetService,
-    public validatorsService: ValidatorsService
-
-  ){}
+  constructor (public budgetService: BudgetService, public validatorsService: ValidatorsService){}
 
   public signalArray = this.budgetService.budgetArray;
-  public budgetResults: string[] = [];
   public budgetFound: Budget[] = [];
-
-
 
 
   //TODO: Métodes  per filtres pressupostos:
@@ -79,20 +72,9 @@ export class BudgetListComponent {
 
 
   searchBudget():void {
-
     let searchB = this.searchForm.get('search')!.value?.toLowerCase() || '';
-    let budgetFound = this.signalArray().filter(budget => budget.name.toLowerCase() == searchB);
+    this.budgetFound = this.signalArray().filter(budget => budget.name.toLowerCase() == searchB);
 
-    if (budgetFound.length > 0) {
-      budgetFound.map((data:Budget) => {
-      this.budgetResults = data.services;
-      console.log('Presupuesto encontrado:', budgetFound);
-      })
-
-    } else {
-      console.log('Presupuesto no encontrado');
-
-    }
   }
 
 }
