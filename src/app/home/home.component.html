@@ -110,7 +110,7 @@
             <input type="text"
                     class="form-control"
                     formControlName="name"
-                    placeholder="Nom i cognoms">
+                    placeholder="Nom">
 
             <span *ngIf="isValidField('name')"  class="form-text text-danger">
                       *Introdueix el teu nom.
@@ -144,7 +144,7 @@
           <div class="row">
               <div class="col me-2 mb-2">
                   <button
-                  (click)="onSave()"
+                  (click)="onSubmit()"
                   class="btn btn-primary float-end" type="submit"> Sol.licitar pressupost</button>
               </div>
           </div>

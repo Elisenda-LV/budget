@@ -144,7 +144,7 @@ export class HomeComponent implements OnInit  {
 
   //TODO: Métode per enviar dades formulari al array amb signals (ubicada al service)
 
-  onSave(): void{
+  onSubmit(): void{
 
     this.submitForm = true;
     let formServices : any[] = this.productService.products
@@ -192,7 +192,6 @@ export class HomeComponent implements OnInit  {
 
     return isAnyCheckboxChecked && currentFieldValid;
 
-    // return formControl && formControl.errors && formControl.touched;
   }
 
 

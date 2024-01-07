@@ -33,7 +33,7 @@ export class BudgetListComponent {
   public budgetFound: Budget[] = [];
 
 
-  //TODO: Métodes  per filtres pressupostos:
+  //TODO: Métodes  per filtrar pressupostos:
 
   byPrice(): void {
     this.signalArray().sort((a: Budget, b: Budget) => b.price - a.price);
